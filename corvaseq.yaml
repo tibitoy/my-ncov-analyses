@@ -1,0 +1,52 @@
+inputs:
+  - name: reference_data
+    metadata: https://data.nextstrain.org/files/ncov/open/reference/metadata.tsv.xz
+    aligned: https://data.nextstrain.org/files/ncov/open/reference/aligned.fasta.xz
+
+  - name: corvaseq
+    # The workflow will detect and extract the metadata and sequences
+    # from GISAID tar archives.
+    metadata: ncov/gisaid_auspice_omicron_corvaseq/
+    sequences: ncov/gisaid_auspice_omicron_corvaseq/
+
+  - name: north-america
+    # The workflow will similarly detect and extract metadata and
+    # sequences from compressed tar archives.
+    metadata: data/ncov_north-america.tar.gz
+    sequences: data/ncov_north-america.tar.gz
+
+    refine:
+  root: "Wuhan-Hu-1/2019"
+
+#Define builds (dataset we want to use and parameters around use)
+builds:
+  northcarolina:
+    title: "North Carolina-specific genomic surveillance build"
+    subsampling_scheme: northcarolina_scheme
+    auspice_config: /home4/tibitoy/ncov/my-ncov-analyses/auspice-config-custom-data.json
+
+
+subsampling:
+  northcarolina_scheme:
+  	custom_sample:
+      query: --query "(corvaseq == 'yes')"
+  	nc_context:
+      query: --query "(corvaseq != 'yes') & (division == 'North Carolina')"
+      max_sequences: 1000
+      group_by: year month #Sequences willbe subsampled evenly across all combinations of year and month, with sequences genetically similar to custom_sample prioritized 
+      priorities:
+        type: proximity
+        focus: custom_sample #this section will select 1000 data pieces from North Carolina from the reference data and north america data inputs. 
+    usa_context:
+      query: --query "(corvaseq != 'yes') & (country == 'USA')"
+      max_sequences: 1000
+      group_by: division year month #Sequences willbe subsampled evenly across all combinations of division, year, and month
+      priorities:
+        type: proximity
+        focus: custom_sample
+    global_context:
+      query: --query "(corvaseq != 'yes')"
+      max_sequences: 10
+      priorities:
+        type: proximity
+        focus: custom_sample
