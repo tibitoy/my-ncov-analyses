@@ -1,8 +1,8 @@
 {
   "colorings": [
     {
-      "key": "custom_data",
-      "title": "Custom data",
+      "key": "corvaseq",
+      "title": "corvaseq",
       "type": "categorical",
       "legend": [
         {"value": "no"},
@@ -15,6 +15,6 @@
     }
   ],
   "display_defaults": {
-    "color_by": "custom_data"
+    "color_by": "corvaseq"
   }
 }
