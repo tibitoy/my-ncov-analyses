@@ -2,9 +2,6 @@
 # We will reference these names in the subsampling scheme
 # below, as a way to select specific strains for the analysis.
 inputs:
-  - name: reference_data
-    metadata: data/sequences.fasta.xz
-    aligned: data/metadata.tsv
   - name: corvaseq
     metadata: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
     sequences: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
@@ -89,7 +86,7 @@ subsampling:
     # genetically related to the "idaho" subsampling set, but
     # you can remove the "priorities" block to get a random
     # global context instead.
-    global_context:
+    northamerica_context:
       query: --query "(custom_data != 'yes')"
       # As with the contextual data from the USA above, tune
       # this value to get a reasonable number of strains in
