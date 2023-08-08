@@ -1,4 +1,7 @@
 inputs:
+  - name: reference_data
+    metadata: https://data.nextstrain.org/files/ncov/open/reference/metadata.tsv.xz
+    sequences: https://data.nextstrain.org/files/ncov/open/reference/sequences.fasta.xz
   - name: corvaseq
     metadata: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
     sequences: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
