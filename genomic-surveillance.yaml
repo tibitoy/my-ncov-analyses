@@ -3,8 +3,8 @@
 # below, as a way to select specific strains for the analysis.
 inputs:
   - name: reference_data
-    metadata: data/references_sequences.fasta
-    aligned: data/references_metadata.tsv
+    metadata: data/sequences.fasta.xz
+    aligned: data/metadata.tsv.xz
   - name: corvaseq
     metadata: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
     sequences: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
