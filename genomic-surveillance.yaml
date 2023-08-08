@@ -4,7 +4,7 @@
 inputs:
   - name: reference_data
     metadata: data/sequences.fasta.xz
-    aligned: data/metadata.tsv.xz
+    aligned: data/metadata.tsv
   - name: corvaseq
     metadata: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
     sequences: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
