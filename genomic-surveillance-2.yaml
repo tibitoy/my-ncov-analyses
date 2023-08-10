@@ -77,8 +77,6 @@ subsampling:
       # US states by year and month. Sequences in each group
       # of state, year, and month are prioritized by genetic
       # proximity.
-      min_date: "--min-date 2021-10-31"
-      max_date: "--max-date 2022-03-05"
       group_by: year month
       priorities:
         type: proximity
@@ -93,8 +91,6 @@ subsampling:
       # US states by year and month. Sequences in each group
       # of state, year, and month are prioritized by genetic
       # proximity.
-      min_date: "--min-date 2021-10-31"
-      max_date: "--max-date 2022-03-05"
       group_by: division year month
       priorities:
         type: proximity
@@ -110,8 +106,6 @@ subsampling:
       # this value to get a reasonable number of strains in
       # your build.
       max_sequences: 10
-      min_date: "--min-date 2021-10-31"
-      max_date: "--max-date 2022-03-05"
       priorities:
         type: proximity
         focus: custom_sample
