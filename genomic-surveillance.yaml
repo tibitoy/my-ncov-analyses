@@ -1,6 +1,3 @@
-# Define our input data, assigning a name to each dataset.
-# We will reference these names in the subsampling scheme
-# below, as a way to select specific strains for the analysis.
 inputs:
   - name: reference_data
     metadata: https://data.nextstrain.org/files/ncov/open/reference/metadata.tsv.xz
