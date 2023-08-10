@@ -1,0 +1,56 @@
+inputs:
+  - name: reference_data
+    metadata: https://data.nextstrain.org/files/ncov/open/reference/metadata.tsv.xz
+    sequences: https://data.nextstrain.org/files/ncov/open/reference/sequences.fasta.xz
+  - name: corvaseq
+    metadata: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
+    sequences: gisaid_auspice_omicron_corvaseq/omicron_corvaseq_augur.tar.gz
+  - name: background_data_1
+    metadata: data/gisaid_northcarolina_103121_112921.tar
+    sequences: data/gisaid_northcarolina_103121_112921.tar
+  - name: background_data_2
+    metadata: data/gisaid_northcarolina_113021_122121.tar
+    sequences: data/gisaid_northcarolina_113021_122121.tar
+  - name: background_data_3
+    metadata: data/gisaid_northcarolina_122221_010622.tar
+    sequences: data/gisaid_northcarolina_122221_010622.tar
+  - name: background_data_4
+    metadata: data/gisaid_northcarolina_010722_011921.tar
+    sequences: data/gisaid_northcarolina_010722_011921.tar
+  - name: background_data_5
+    metadata: data/gisaid_northcarolina_012022_020122.tar
+    sequences: data/gisaid_northcarolina_012022_020122.tar
+  - name: background_data_6
+    metadata: data/gisaid_northcarolina_020222_021122.tar
+    sequences: data/gisaid_northcarolina_020222_021122.tar
+  - name: background_data_7
+    metadata: data/gisaid_northcarolina_021222_030522.tar
+    sequences: data/gisaid_northcarolina_021222_030522.tar
+
+# GenBank data includes "Wuhan-Hu-1/2019" which we use as the root for this build.
+refine:
+  root: "Wuhan-Hu-1/2019"
+
+builds:
+  nc:
+    title: "NC-specific genomic surveillance build"
+    subsampling_scheme: nc_scheme
+    auspice_config: my-ncov-analyses/auspice-config-custom-data.json
+
+subsampling:
+  nc_scheme:
+    custom_sample:
+      query: --query "(corvaseq == 'yes')"
+    nc_context:
+      query: --query "(corvaseq != 'yes') & (country == 'USA') & (division == 'North Carolina')"
+      max_sequences: 1000
+      group_by: division year month
+      priorities:
+        type: proximity
+        focus: custom_sample
+    global_context:
+      query: --query "(corvaseq != 'yes')"
+      max_sequences: 10
+      priorities:
+        type: proximity
+        focus: custom_sample
