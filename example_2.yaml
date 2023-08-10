@@ -32,20 +32,7 @@ refine:
   root: "Wuhan-Hu-1/2019"
 
 builds:
-  nc:
-    title: "NC-specific genomic surveillance build"
-    subsampling_scheme: nc_scheme
+  custom-build:
+    title: "Build with custom data and example data"
+    subsampling_scheme: all
     auspice_config: my-ncov-analyses/auspice-config-custom-data.json
-
-subsampling:
-  nc_scheme:
-    custom_sample:
-      query: --query "(corvaseq == 'yes')"
-    nc_context:
-      query: --query "(corvaseq != 'yes') & (country == 'USA') & (division == 'North Carolina') & (location != 'Raleigh')"
-      max_sequences: 1000
-      group_by: division year month
-      priorities:
-        type: proximity
-        focus: custom_sample
-   
