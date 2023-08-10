@@ -8,22 +8,22 @@ inputs:
   - name: background_data_1
     metadata: data/gisaid_northcarolina_103121_112921.tar
     sequences: data/gisaid_northcarolina_103121_112921.tar
- - name: background_data_2
+  - name: background_data_2
     metadata: data/gisaid_northcarolina_113021_122121.tar
     sequences: data/gisaid_northcarolina_113021_122121.tar
- - name: background_data_3
+  - name: background_data_3
     metadata: data/gisaid_northcarolina_122221_010622.tar
     sequences: data/gisaid_northcarolina_122221_010622.tar
- - name: background_data_4
+  - name: background_data_4
     metadata: data/gisaid_northcarolina_010722_011921.tar
     sequences: data/gisaid_northcarolina_010722_011921.tar
- - name: background_data_5
+  - name: background_data_5
     metadata: data/gisaid_northcarolina_012022_020122.tar
     sequences: data/gisaid_northcarolina_012022_020122.tar
- - name: background_data_6
+  - name: background_data_6
     metadata: data/gisaid_northcarolina_020222_021122.tar
     sequences: data/gisaid_northcarolina_020222_021122.tar
- - name: background_data_7
+  - name: background_data_7
     metadata: data/gisaid_northcarolina_021222_030522.tar
     sequences: data/gisaid_northcarolina_021222_030522.tar
 
