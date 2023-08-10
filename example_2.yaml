@@ -42,15 +42,10 @@ subsampling:
     custom_sample:
       query: --query "(corvaseq == 'yes')"
     nc_context:
-      query: --query "(corvaseq != 'yes') & (country == 'USA') & (division == 'North Carolina')"
+      query: --query "(corvaseq != 'yes') & (country == 'USA') & (division == 'North Carolina') & (location != 'Raleigh')"
       max_sequences: 1000
       group_by: division year month
       priorities:
         type: proximity
         focus: custom_sample
-    global_context:
-      query: --query "(corvaseq != 'yes')"
-      max_sequences: 10
-      priorities:
-        type: proximity
-        focus: custom_sample
+   
