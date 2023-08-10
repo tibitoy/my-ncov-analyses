@@ -83,7 +83,7 @@ subsampling:
         type: proximity
         focus: custom_sample
     usa_context:
-      query: --query "(custom_data != 'yes') & (country == 'USA' & division != 'North Carolina')"
+      query: --query "(corvaseq != 'yes') & (country == 'USA' & division != 'North Carolina')"
       # This value sets a hard upper limit on how many strains
       # make it into the analysis. Tune this value, based on
       # your needs for the resulting tree.
@@ -103,7 +103,7 @@ subsampling:
     # you can remove the "priorities" block to get a random
     # global context instead.
     northamerica_context:
-      query: --query "(custom_data != 'yes')"
+      query: --query "(corvaseq != 'yes')"
       # As with the contextual data from the USA above, tune
       # this value to get a reasonable number of strains in
       # your build.
